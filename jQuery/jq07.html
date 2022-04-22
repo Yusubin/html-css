@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $('button').on("click",function(){
+                // $("li:has(span)").text("span 요소 있음");
+                // $("li:has(span):eq(0)").text("span 요소 있음");
+                // $("li:gt(1)").text("선택요소");
+                $("li:lt(1)").text("선택요소");
+                $("li:not(:odd)").text("선택요소");
+                $("li:not(:has(span]))").text("선택요소");
+                // $('p').html(i);
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>첫번째아이템</li>
+        <li><span>두번째</span>아이템</li>
+        <li>세번째아이템</li>
+        <li><span>네번째</span>아이템</li>
+    </ul>
+    <ul>
+        <li>다섯번째아이템</li>
+        <li><span>여섯번째</span>아이템</li>
+        <li>일곱번째아이템</li>
+        <li><span>아홉번째</span>아이템</li>
+    </ul>
+    <div>
+        <div>
+            <div>
+                <ul>
+                    <li>다섯번째아이템</li>
+                    <li><span>여섯번째</span>아이템</li>
+                    <li>일곱번째아이템</li>
+                    <li><span>아홉번째</span>아이템</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button>필터링</button>
+    <p></p>
+</body>
+</html>

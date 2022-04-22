@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>미세먼지 OpenAPI</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="search_div">
+        권역:<select id="MSRRGN">
+        </select>
+    </div>
+    <div>
+        <table id="tb_air">
+            <tr>
+                <th>권역</th>
+                <th>구</th>
+                <th>수치</th>
+                <th>상태</th>
+            </th>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> -->
+        </table>
+    </diov>
+</body>
+<script>
+$(function(){
+    air();
+});
+
+let air = function(RGN){
+    let RGNs = [];
+    $.ajax({
+        url:'http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/992',
+        //url:'http://www.naver1.com',
+        data:{
+        },
+        beforeSend : function(){
+            //==값비교  같다. 
+            //값+객체타입비교 ("1"===1) 다르다.
+            if("1"=== 1){
+                console.log("true");
+            }else{
+                console.log("false");
+            }
+            if(RGN === undefined){
+                $('#MSRRGN').append('<option value="">-(권역)선택해주세요-</option>');
+            }else{
+                $('#tb_air tr:nth-child(n+2)').remove();
+            }
+        },
+        success:function(json){
+            console.log(json);
+            // $.(json.RealtimeCityAir.row)each(function(index,item)) {
+            $.each(json.RealtimeCityAir.row,function(index,item) {
+                if(RGN === undefined || RGN === ''){
+                    $('#tb_air').append('<tr><td>'+item.MSRRGN_NM+'</td><td>'+item.MSRSTE_NM+'</td><td>'+item.IDEX_MVL+'</td><td>'+item.IDEX_NM+'</td></tr>');
+                }else{
+                    if(RGN === item.MSRRGN_NM){
+                        $('#tb_air').append('<tr><td>'+item.MSRRGN_NM+'</td><td>'+item.MSRSTE_NM+'</td><td>'+item.IDEX_MVL+'</td><td>'+item.IDEX_NM+'</td></tr>');
+                    }
+                }
+                
+                if(RGN === undefined){
+                    //배열에 같은 값이 있는지 확인
+                    if(!RGNs.includes(item.MSRRGN_NM)){
+                        // 배열에 저장.
+                        RGNs.push(item.MSRRGN_NM);
+                    }
+                }
+            });
+        },
+        error : function(request, status, error){
+            console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        },
+        complete:function(){
+            if(RGN === undefined){
+                for(const RG of RGNs){
+                    $('#MSRRGN').append('<option value="'+RG+'">'+RG+'</option>');
+                }
+            }
+        }
+    });
+}
+
+$('#MSRRGN').change(function(){
+    air(this.value);
+});
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+           $('#beforeBtn').click(function(){
+            //    $('#firstRow').before("<tr><td>새로추가</td></tr>");
+                $("#tbId").find('tr').eq(2).before("<tr><td>새로추가</td><td>ㄴㄴ추가</td></tr>");
+           });
+           $('#afterBtn').click(function(){
+            //    $('#firstRow').before("<tr><td>새로추가</td></tr>");
+                 $("#tbId").find('tr').eq(2).after("<tr><td>새로추가</td><td>ㄴㄴ추가</td></tr>");
+           });
+        });
+    </script>
+</head>
+<body>
+    <table id="tbId">
+        <tr id="tr_1" data-idx="1">
+            <td>첫번째</td>
+            <td>두번째</td>
+        </tr>
+        <tr id="tr_1" data-idx="2">
+            <td>셋번째</td>
+            <td>넷번째</td>
+        </tr>
+        <tr id="tr_1" data-idx="3" >
+            <td>다섯번째</td>
+            <td>여섯번째</td>
+        </tr>
+    </table>
+    <button id="beforeBtn">형추가</button>
+    <button id="afterBtn">형추가</button>
+</body>
+</html>

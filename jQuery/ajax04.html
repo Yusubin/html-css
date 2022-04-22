@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        th,td{padding: 10px; border-bottom: 1px solid black;}
+
+        table{ 
+        /* font-family: "YUniverse-B";  */
+            width:100%; border-spacing: 20px 30px; border-collapse: collapse;}
+            td{text-align: center;}
+            td:hover{background-color: rgb(243, 243, 243);}
+
+    </style>
+    <script>
+            $(function () {
+                $('#requestionBtn').click(function(){
+                    $.ajax({
+
+                        url:'http://192.168.0.12:5500/json/json01.txt',
+                        data:{keyword:'value값' },
+                        method:"get",
+
+                     
+                        beforeSend:function(){
+                            console.log('beforeSend');
+                        },
+                        // dataType:"json",
+                        success:function(json){
+
+                            let jsonparam=JSON.parse(json);
+                            console.log('Success');
+                            
+                            console.log(jsonparam.name);
+                            $("#tr_1").find('td').eq(1).before("<td>"+jsonparam.name+"</td>");
+                            $("#tr_2").find('td').eq(1).before("<td>"+jsonparam.gender+"</td>");
+                            $("#tr_3").find('td').eq(1).before("<td>"+jsonparam.phone+"</td>");
+                            $("#tr_4").find('td').eq(1).before("<td>"+jsonparam.id+"</td>");
+                            $("#tr_5").find('td').eq(1).before("<td>"+jsonparam.pw+"</td>");
+                            $("#tr_6").find('td').eq(1).before("<td>"+jsonparam.rgstdate+"</td>");
+                        }, 
+                        
+                        error:function(){
+                            console.log('error');
+                        }, 
+                        
+                        complete:function(){
+                            console.log('complete');
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="requestionBtn">가져오기</button>
+    <table border="1" id="tt">
+        <tr id="tr_1">
+            <td>이름</td>
+            <td></td>
+        </tr>
+        <tr id="tr_2">
+            <td>성별</td>
+            <td></td>
+        </tr>
+        <tr id="tr_3">
+            <td>전화번호</td>
+            <td></td>
+        </tr>
+        <tr id="tr_4">
+            <td>아이디</td>
+            <td></td>
+        </tr>
+        <tr id="tr_5">
+            <td>비밀번호</td>
+            <td></td>
+        </tr>
+        <tr id="tr_6">
+            <td>등록일</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>Document</title>
+    <script>
+        function change_tiger(){
+            console.log(document.getElementsByClassName("tiger")[0].innerHTML);
+            // document.getElementsByClassName("tiger")[0].innerText="<span style='color:red'>Tiger</span>";
+            document.getElementsByClassName("tiger")[0].innerHTML="<span style='color:red'>Tiger</span>";
+        }
+        function change_bear(){
+            console.log(document.getElementById("bear").innerHTML);
+            document.getElementById("bear").innerHTML="<span style='color:red'>bear</span>";
+        }
+    </script>
+</head>
+<body>
+    <p class="tiger">호랑이</p>
+    <p id="bear">곰</p>
+    <input type="button" onclick="change_tiger()" value ="호랑이를 영어로">
+    <input type="button" onclick="change_bear()" value ="곰을 영어로">  
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arr_img=new Array();
+        arr_img.push({imgTitle:'아침밥', imgSrc:"/breakfast-g227bf3c28_1920.jpg"});
+        arr_img.push({imgTitle:'다운', imgSrc:"/img/다운로드.png"});
+        arr_img.push({imgTitle:'초원', imgSrc:"https://w.namu.la/s/45507892b4f48b2b3d4a6386f6dae20c28376a8ef5dfb68c7cc95249ec358e3e68df77594766021173b2e6acf374b79ce02e9eeef61fcdf316659e30289e123fbddf6e5ec3492eddbc582ee5a59a2ff5d6ee84f57ad19277d179b613614364ad"});
+        arr_img.push({imgTitle:'교통', imgSrc:"/img/traffic-lights-gb4b3fa4f9_1920.jpg"});
+        arr_img.push({imgTitle:'석류', imgSrc:"/html/dewdrop-g533c8317b_1920.jpg"});
+    
+    </script>
+</head>
+<body>
+    <button onclick="startInterval()">2초마다 시간 갱신</button>
+    <button onclick="cancleInterval()">정지</button>
+    <br>
+    <br>
+    <img id="arr_img" src="https://w.namu.la/s/45507892b4f48b2b3d4a6386f6dae20c28376a8ef5dfb68c7cc95249ec358e3e68df77594766021173b2e6acf374b79ce02e9eeef61fcdf316659e30289e123fbddf6e5ec3492eddbc582ee5a59a2ff5d6ee84f57ad19277d179b613614364ad" width="300px" height="200px">
+    <br>
+    <p id="imgTitle"></p>
+    이미지 이름 <input type="text" id="name">    <br>
+    이미지 링크 <input type="text" id="inputt">
+    <input type="button" id="bn" value="등록">
+
+</body>
+
+<script>
+    
+    document.getElementById('arr_img').src=arr_img[0].imgSrc;
+    document.getElementById('arr_img').title=arr_img[0].imgTitle;
+    document.getElementById('imgTitle').innerHTML=arr_img[0].imgTitle;
+    
+    
+    
+    var im=document.getElementById("im");
+    var listt=document.getElementById("imgTitle");
+    
+    var timeoutId;
+
+    var i=0;
+    var bn=document.getElementById("bn");
+    bn.addEventListener("click",addImg);
+
+    function addImg(){
+        if(document.getElementById("name").value==""){
+            alert("제목을 입력해주세요");
+            document.getElementById("name").focus;
+            return;
+        }if(document.getElementById("inputt").value==""){
+            alert("제목을 입력해주세요");
+            document.getElementById("inputt").focus;
+            return;
+        }
+
+        arr_img.push({imgTitle:document.getElementById("name").value, imgSrc:document.getElementById("inputt").value});
+        form_reset();
+        console.log(arr_img);
+    }
+
+    function form_reset(){
+        document.getElementById("name").value=="";
+        document.getElementById("inputt").value=="";
+    }
+    // function push_src(){
+    //     const name1=document.getElementById("name").value;
+    //     const ip1=document.getElementById("inputt").value;
+    //         // console.log(ip);
+    //     arr_img.push({imgTitle:name1, imgSrc:ip1});
+    //     listt.innerHTML= name1+ "등록성공";
+        
+        
+           
+    // }
+    function startInterval(){
+      
+        if(timeoutId ==undefined){
+            timeoutId=setInterval(printQurrentDate, 2000);
+        }
+        //setInterval 반복적으로 함수실행
+        
+        console.log(timeoutId);
+    }
+
+    function cancleInterval(){
+        //clearInterval 타이머 중지
+        clearInterval(timeoutId);
+
+        timeoutId=null;
+        console.log("timeoutId:"+timeoutId);
+    }
+
+    function printQurrentDate(){
+        while (true){
+            // $("#arr_img").fadeIn(1000);
+            // $("#arr_img").fadeOut(1000);
+            
+            cnt=1;
+            $("#arr_img").hide();
+            
+            
+            if(i%2==0){  $("#arr_img").slideDown(1000);}
+            else(i%2==1){  $("#arr_img").fadeIn(1000);}
+            document.getElementById('arr_img').title =arr_img[i].imgTitle;
+            document.getElementById('arr_img').src = arr_img[i].imgSrc;
+            document.getElementById('imgTitle').innerHTML=arr_img[i].imgTitle;
+            i++;
+           
+            if(i==arr_img.length){
+                i=0;
+            }
+            if(cancleInterval){break;}
+        
+        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            
+    }
+
+    var img_btn =document.getElementById("arr_img");
+    img_btn.addEventListener("mouseover", mouseoverImg);
+    img_btn.addEventListener("mouseout", mouseoutImg);
+
+    function mouseoverImg(){
+        clearInterval(timeoutId);
+
+    }
+    function mouseoutImg(){
+        timeoutId=setInterval(printQurrentDate, 2000);
+    }
+</script>
+</html>

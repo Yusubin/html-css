@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            let items = $('li');
+            $('button').on('click',function(){
+
+                $('#len').html("요소의 길이는: "+items.length);
+               
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ul>
+    <button>요소의 길이는?</button>
+    <p id="len"> </p>
+</body>
+</html>

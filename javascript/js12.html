@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ 
+</head>
+<body>
+    <h1>이벤트 등록</h1>
+    <p>아래버튼애 마우스를 올ㄹ리거나 클릭해보세요</p>
+    <button id="btn">버ㅡ튼</button>
+    <p id="message"></p>
+</body>
+<script>
+    var btn=document.getElementById("btn");
+    btn.addEventListener("click", clickBtn);
+    btn.addEventListener("mouseover", mouseoverBtn);
+    btn.addEventListener("mouseout", mouseoutBtn);
+
+
+    function clickBtn(){
+        document.getElementById("message").innerHTML="버튼클릭"
+    }
+    function mouseoverBtn(){
+        document.getElementById("message").innerHTML="마우스 오버"
+    }
+    function mouseoutBtn(){
+        document.getElementById("message").innerHTML="마우스 아웃"
+    }
+</script>
+</html>

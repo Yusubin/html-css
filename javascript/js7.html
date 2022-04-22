@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @font-face {
+            font-family: 'YUniverse-B';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        } */
+        th,td{padding: 10px; border-bottom: 1px solid black;}
+
+        table{ 
+             /* font-family: "YUniverse-B";  */
+        width:100%; border-spacing: 20px 30px; border-collapse: collapse;}
+        td{text-align: center;}
+        td:hover{background-color: rgb(243, 243, 243);}
+
+        #tt{
+            height: 150px;
+        }
+        #tt td{
+            text-align: left;
+            vertical-align : top;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+   
+<body>
+
+    <h1> 일주일 달력</h2>
+    <table id="calander">
+        <tr>
+            <td class="week" style="color:rgb(255, 0, 0)"> 일 </td>
+            <td class="week"> 월 </td>
+            <td class="week"> 화 </td>
+            <td class="week"> 수 </td>
+            <td class="week"> 목 </td>
+            <td class="week"> 금 </td>
+            <td class="week" style="color:blue"> 토 </td>
+
+        </tr>
+    </table>
+    <script>
+        let arrDayStr=['일','월','화','수','목','금','토']
+        let currentDate=new Date();   
+        var count=0;
+        while(true){
+            if(currentDate.getDay()==0){
+                break;
+            } else{
+                currentDate.setDate(currentDate.getDate()-1);
+                count++;
+            }
+        }
+
+        const row=1;
+        const col=7;
+        document.write('<table id="tt">');
+            for(let i=0; i<row;i++){
+                document.write('<tr>');
+                for(i=0;i<col;i++){
+                    document.write('<td>');
+                    document.write("  "
+                    +(currentDate.getMonth()+1)+"/"
+                    +currentDate.getDate());
+                    document.write('</td>')
+                    currentDate.setDate(currentDate.getDate()+1);
+                        
+                    }
+                document.write('<tr>');
+            }
+        
+        document.write('</table>');
+
+    </script> 
+</head>
+    
+    
+</body>
+</html>

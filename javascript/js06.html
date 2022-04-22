@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let date1=new Date();
+        let arrDayStr=['일','월','화','수','목','금','토']
+        console.log( date1.getFullYear()+"-"+(date1.getMonth()+1)+"-"+date1.getDate()+"("+arrDayStr[date1.getDay()]+")");
+        console.log(date1.getHours()+":"+date1.getMinutes()+":"+date1.getSeconds());
+        let date2=new Date(1990,0,25,12,34,12);
+        console.log( date2.getFullYear()+"-"+(date2.getMonth()+1)+"-"+date2.getDate()+"("+arrDayStr[date2.getDay()]+")");
+        console.log(date2.getHours()+":"+date2.getMinutes()+":"+date2.getSeconds());
+
+
+        let date3=new Date("1990-05-25 10:20:55");
+        date3.setDate(date3.getDate()-1);
+        console.log(date3.getFullYear()+"-"+(date3.getMonth()+1)+"-"+date3.getDate()+"("+arrDayStr[date3.getDay()]+")");
+        console.log(date3.getHours()+":"+date3.getMinutes()+":"+date3.getSeconds());
+        
+
+  </script>
+</head>
+<body>
+    
+</body>
+</html>

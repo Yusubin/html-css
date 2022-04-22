@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+         /* @font-face {
+            font-family: 'YUniverse-B';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_yuniverse@1.0/YUniverse-B.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        input{margin:3px;}
+        div{
+            font-family: "YUniverse-B";
+            color:blanchedalmond;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            padding:10px;
+            border: 2px solid black;
+            width: 500px;
+            background-color:rgb(81, 160, 160);
+        }
+
+        p{
+            text-align: left;
+            font-size: 8px;
+            color: rgb(158, 48, 67);
+        } */
+    </style>  -->
+    <script>
+
+        function login_submit(){
+            var frm=document.login;
+          
+            var count=0;
+            for(i=0; i<frm.chk.length; i++){
+                if (frm.chk[i].checked==true){ count++;}
+            }
+            if(count<4){
+                document.getElementsByTagName('p')[0].innerHTML="취미를 입력해주세요,,,";
+                return;
+            }
+
+            
+            if(frm.u_name.value==''){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      count<4){
+                document.getElementsByTagName('p')[0].innerHTML="이름을 모두 입력해주세요,,,";
+                return;
+            }
+
+            // var inter_chk=true;
+            // for(i=0; i<frm.chk.length; i++){
+            //     if (frm.chk[i].checked){inter_chk=false;}
+            // }
+            // if(inter_chk){
+            //     document.getElementsByTagName('p')[0].innerHTML="취미를 입력해주세요,,,";
+            //     return;
+            // }
+
+            // var inter_chk=true;
+            // for(i=0; i<frm.chk.length; i++){
+            //     if (frm.chk[i].checked){inter_chk=false;}
+            // }
+            // if(inter_chk){
+            //     document.getElementsByTagName('p')[0].innerHTML="취미를 모두입력해주세요,,,";
+            //     return;
+            // }
+
+            if(frm.u_gender.value==''){
+                document.getElementsByTagName('p')[0].innerHTML="성별을 입력해주세요,,,";
+                return;
+            }
+            if(5<=frm.u_id.value.length && frm.u_id.value.length<=15){
+                document.getElementsByTagName('p')[0].innerHTML="정상아이디길이,,,";
+                return;
+
+            }else{
+                document.getElementsByTagName('p')[0].innerHTML="비정상아이디길이,,,";
+            }
+            if(frm.u_id.value==''){
+                document.getElementsByTagName('p')[0].innerHTML="아이디를 입력해주세요,,,";
+                return;
+            }if(frm.u_pw.value==''){
+
+                document.getElementsByTagName('p')[0].innerHTML="패스워드를 입력해주세요,,,";
+                frm.u_pw.focus();
+                return;
+            }if(frm.u_upyeon.value==''){
+   
+                document.getElementsByTagName('p')[0].innerHTML="우편번호를 입력해주세요,,,";
+                frm.u_upyeon.focus();
+                return;
+            }if(frm.u_juso1.value=='' && frm.u_juso2.value==''){
+         
+                document.getElementsByTagName('p')[0].innerHTML="주소를 입력해주세요,,,";
+                return;
+            }
+            // }if(frm.u_juso2.value==''){
+            
+            //     document.getElementsByTagName('p')[0].innerHTML="주소2를 입력해주세요,,,";
+            //     frm.u_juso2.focus();
+            //     return;
+            // }
+
+            if(confirm("회원가입하시겠습니까?")){
+                frm.submit();
+            }
+            // frm.action="/2222";
+            // frm.method="post";
+           
+            document.getElementsByTagName('h1')[0].innerHTML="회원가입중,,,,,,";
+        }
+        
+            
+    </script>
+</head>
+<body>
+    <h1>회원가입 폼</h1>
+    <hr>
+
+    <div>
+        <form name="login" action="/1111" method="post">
+            이름: <input type="text" name="u_name" placeholder="이름" autofocus><br>
+            아이디: <input type="text" name="u_id" placeholder="아이디" ><br>
+            패스워드: <input type="password" name="u_pw" placeholder="패스워드"><br>
+            우편번호: <input type="text" name="u_upyeon" placeholder="우편번호" ><br>
+            주소1: <input type="text" name="u_juso1" placeholder="주소1" ><br>
+            주소2:  <input type="text" name="u_juso2" placeholder="주소2" ><br>
+            
+            성별:
+            <input type="radio" name="u_gender" value="1" />여
+            <input type="radio" name="u_gender" value="2" />남<br>
+            취미:
+            <input type="checkbox" name ="chk" value="수영">수영
+            <input type="checkbox" name ="chk" value="야구">야구
+            <input type="checkbox" name ="chk" value="배구">배구
+            <input type="checkbox" name ="chk" value="축구">축구<br>
+    
+            <textarea name="txarea"rows='10'cols="55">자기소개</textarea><br>
+    
+            <input type="button" onclick="login_submit()"value="가입">
+        </form>
+        <p> </p>
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{ color:red; font-size: 10px;}
+    </style>
+    <script>
+        function login_submit(){
+            var frm=document.login;
+            if(frm.u_id.value==''){
+                // alert('아이디를 입력해주세요');
+                document.getElementsByTagName('p')[0].innerHTML="아이디를 입력해주세요,,,";
+                return;
+            }if(frm.u_pw.value==''){
+                // alert('패스워드를 입력해주세요');
+                document.getElementsByTagName('p')[0].innerHTML="패스워드를 입력해주세요,,,";
+                frm.u_pw.focus();
+                return;
+            }
+            // frm.action="/2222";
+            // frm.method="post";
+            document.getElementsByTagName('h1')[0].innerHTML="로그인중,,,,,,";
+            
+            //  frm.submit();
+            // alert(document.login[0].u_id.value);
+            // alert(document.login[0].u_pw.value);
+        }
+        /*
+        1. 자바 스크립트 문서는 위에서 아래로 부터 순차적으로 실행되는 구조 (절차형)
+        자바는 컴파일형언어
+        2. '.'을 이용해서 아래로 값과 속성을 따라가는 구조. 
+        3. 같은 이름이 있으면 배열로처리. 위에서 아래로 순차적인 배열로 구분
+        4. 
+        */
+    </script>
+</head>
+<body>
+    <h1>로그인</h1>
+    <hr>
+
+    <form name="login" action="/1111" method="get">
+        <input type="text" name="u_id" placeholder="아이디" autofocus><br>
+        <input type="password" name="u_pw" placeholder="패스워드"><br>
+        <input type="button" onclick="login_submit()"value="로그인">
+    </form>
+    <p> </p>
+    <!-- <form name="login2" action="/2222" method="post">
+        <input type="text" name="u_id2" placeholder="아이디2"><br>
+        <input type="password" name="u_pw2" placeholder="패스워드2"><br>
+        <input type="button" onclick="login_submit()"value="로그인">
+    </form> -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+   
+     $(function(){
+         $('#requestionBtn').click(function() {
+            // $("#text").load("http://192.168.0.12:5500/text/text.txt")       
+            $("#text").load("mytext.txt"); 
+         })
+         //사용자>자바스크립트>웹서버>DB
+         //사용자<자바스크립트<(JSON)웹서버<DB
+    </script>
+
+</head>
+<body>
+    <h1>텍스트를 불러옵니다.</h1>
+    <p id="text">이곳에서 텍스트를 불러옵니다.</p>
+    <button id="requestionBtn">불러오기</button>
+</body>
+</html>

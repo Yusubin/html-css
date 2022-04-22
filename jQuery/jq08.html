@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                // $(":text").css("background","red");
+                let inputs=$(":text");
+            //    inputs.prev().css("font-weight" , "bold").css("color" , "red");
+              
+
+                for(i=0;i<inputs.length;i++){
+                    $(":text:eq("+i+")").prev().html("<strong style= 'color:red;'>"+$(":text:eq("+i+")").prev().text()+"</strong>");
+                }
+                // $("form").children('span').css("font-weight" , "bold");
+                // $("form").children('span').css("color" , "red");
+                // console.log($(":text").length);
+                // $(":input").val("12345");
+                // $(":checked").next().text('선택된요소')
+            //   console.log($(":checked").next().text('선택된요소'));
+        });
+    });
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="lecture" value="jquery"><span>jquery</span>
+    <input type="checkbox" name="lecture" value="HTML"><span>HTML</span>
+    <input type="checkbox" name="lecture" value="JAVA"><span>JAVA</span>
+    <input type="checkbox" name="lecture" value="JSP" checked><span>JSP</span>
+    <input type="checkbox" name="lecture" value="mySQL"><span>mySQL</span>
+
+    <input type="radio" name="book" value="DB개론"><span>DB개론</span>
+    <input type="radio" name="book" value="HTML개론" checked><span>HTML개론</span>
+    <input type="radio" name="book" value="JAVA개론" checked><span>JAVA개론</span>
+   
+
+    <select name="room">
+        <option value="1강의실">1강의실</option>
+        <option value="2강의실" selected>2강의실</option>
+        <option value="3강의실">3강의실</option>
+        <option value="4강의실">4강의실</option>
+        <option value="5강의실">5강의실</option>
+    </select><br>
+
+
+    <form>
+        <input type="hidden" name="u_hidden"><br>
+        <span> 아이디:</span><input type="text" name="u_id"><br>
+        <span> 비번:</span><input type="password" name="u_pw"><br>
+        <span>이름:</span><input type="text" name="u_name"><br>
+        <span> 연락처:</span><input type="text" name="u_phone"><br>
+        <span>주소:</span><input type="text" name="u_addr"><br>
+        <span> 문의사항</span><textarea type="text" name="u_question"></textarea><br>
+        <input type="file" name="u_file">
+    </form>
+    <button>샘플</button>
+    <button>필터링</button>
+
+</body>
+</html>

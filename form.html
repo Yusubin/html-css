@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        action : 데이터 전송될 URL
+        method : get-URL에 전송되는 데이터 포함, post-URL에 전송되는 데이터 포함X
+    -->
+    <form action="/img/folder2.html " method="get">
+        ID:  <input type="text" name="id"/><br>
+        PW: <input type="password" name="pw"/><br> <br>
+        <input type="radio" name="rdb" value="JAVA" checked/> JAVA
+        <input type="radio" name="rdb" value="HTML" /> HTML
+        <input type="radio" name="rdb" value="JAVASCRIPT" /> JAVASCRIPT
+        <input type="radio" name="rdb" value="CSS" /> CSS<br> <br>
+        <input type="checkbox" name ="chk" value="사자">사자
+        <input type="checkbox" name ="chk" value="호랑이">호랑이
+        <input type="checkbox" name ="chk" value="코끼리" checked>코끼리
+        <input type="checkbox" name ="chk" value="기린" disabled>기린
+        <br> <br>
+        <input type="file" name="upfile" accept="application/vnd.ms-excel"> <br> <br>
+        <!-- <input type="file" name="upfile" accept="image/*"> -->
+        <select name="sel">
+            <option value="Ravanclaw" >독수리</option>
+            <option value="Hupfpfp" selected>오소리</option>
+            <option value="Gryfinn">사자</option>
+            <option value="Slytherin">뱀</option>
+        </select>
+        <br> <br>
+        <select name="order[]" multiple>
+            <option value=" " >--전체--</option>
+            <option value="Ravanclaw" >독수리</option>
+            <option value="Hupfpfp" selected>오소리</option>
+            <option value="Gryfinn">사자</option>
+            <option value="Slytherin">뱀</option>
+        </select><br><br>
+        <input list="animals" name="animal"><br>
+        <datalist id="animals">
+            <option value ="호랑이">호랑이</option>
+            <option value ="황소">황소</option>
+            <option value ="코끼리">코끼리</option>
+        </datalist><br>
+        <textarea name="txarea"rows='10'cols="55">ss</textarea>
+        <button type="button" onclick="alert('클릭')">클릭</button><br><br>
+        <input type="submit" value="전송">
+
+
+    </form>
+</body>
+</html>

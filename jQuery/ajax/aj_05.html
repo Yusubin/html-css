@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#requestBtn").click(function(){
+                $.ajax({
+                    url:'http://192.168.0.12:5500/json/json02.txt',
+                    data:{keyword:'value값'},
+                    method:"get",
+                    beforeSend:function(){
+                        //URL 전송전에 작업할 내용
+                        console.log('beforeSend');
+                    },
+                    dataType:"json",
+                    success:function(json){
+                        //성공적으로 URL 전송하고난 내용
+                        console.log('Success');
+                        console.log(json);
+                        $('#table').find("tr").eq(0).nextAll().remove();
+                        $.each(json, function(index, item){
+                            $('#table').append("<tr>"
+                                +"<td>"+(json.length-index)+"</td>"
+                                +"<td>"+item.name+"</td>"
+                                +"<td>"+item.gender+"</td>"
+                                +"<td>"+item.phone+"</td>"
+                                +"<td>"+item.id+"</td>"
+                                +"<td>"+item.pw+"</td>"
+                                +"<td>"+item.rgstdate+"</td>"
+                                +"</tr>");
+                            //console.log(index +":"+item.name+":"+item.gender);
+                        });
+                    },
+                    error:function(){
+                        //오류 났을때 사용하는 내용
+                        console.log('Error');
+                    },
+                    complete:function(){
+                        //모든 것이 끝나고 마지막으로 정리하는 내용
+                        console.log('Complete');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="requestBtn">가져오기</button>
+    <table id="table">
+        <tr>
+            <td>No</td>
+            <td>이름</td>
+            <td>성별</td>
+            <td>전화번호</td>
+            <td>아이디</td>
+            <td>비밀번호</td>
+            <td>등록일</td>
+        </tr>
+    </table>
+</body>
+</html>

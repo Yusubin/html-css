@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#requestBtn").click(function(){
+                $.ajax({
+                    url:'http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/992',
+                    //data:{keyword:'value값'},
+                    method:"get",
+                    beforeSend:function(){
+                        //URL 전송전에 작업할 내용
+                        console.log('beforeSend');
+                    },
+                    dataType:"json",
+                    success:function(json){
+                        //성공적으로 URL 전송하고난 내용
+                        console.log('Success');
+                        console.log(json);
+                        $.each(json.RealtimeCityAir.row, function(index, item){
+                            $('#table').append("<tr><td>ARPLT_MAIN</td>"+
+                                "<td>"+item.CO+"</td>"+
+                                "<td>"+item.IDEX_MVL+"</td>"+
+                                "<td>"+item.IDEX_NM+"</td>"+
+                                "<td>"+item.MSRDT+"</td>"+
+                                "<td>"+item.MSRRGN_NM+"</td>"+
+                                "<td>"+item.MSRSTE_NM+"</td>"+
+                                "<td>"+item.NO2+"</td>"+
+                                "<td>"+item.O3+"</td>"+
+                                "<td>"+item.PM10+"</td>"+
+                                "<td>"+item.PM25+"</td>"+
+                                "<td>"+item.SO2+"</td></tr>");
+                        });
+                    },
+                    error:function(){
+                        //오류 났을때 사용하는 내용
+                        console.log('Error');
+                    },
+                    complete:function(){
+                        //모든 것이 끝나고 마지막으로 정리하는 내용
+                        console.log('Complete');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="requestBtn">가져오기</button>
+    <table id="table">
+        <tr>
+            <td>ARPLT_MAIN</td>
+            <td>CO</td>
+            <td>INDEX_MVL</td>
+            <td>INDEX_NM</td>
+            <td>MSRDT</td>
+            <td>MSTRGN_NM</td>
+            <td>MSRSTE_NM</td>
+            <td>NO2</td>
+            <td>O3</td>
+            <td>PM10</td>
+            <td>PM25</td>
+            <td>SO2</td>
+        </tr>
+    </table>
+</body>
+</html>

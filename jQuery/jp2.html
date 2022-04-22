@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+
+            $('input').on('click',function(){
+                // console.log("버튼이 클릭되었습니다");
+                // $('p').css('border','1px solid red');
+                // $('#p_id').css('border','1px solid red')
+                // $('.pclass').css('border','1px solid red')
+                $('p[data="1"]').css('border','1px solid red');
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <h1>선택자 종류</h1>
+    <input type="button", value="p선택">
+    <p>p태그입니다.</p>
+    <p id="p_id">p태그dlau p1입니다.</p>
+    <p class="pclass" data="1">p태그dlau pclass입니다.</p>
+    <p class="pclass" data="2">"p태그dlau pclass입니다.</p>
+</body>
+</html>

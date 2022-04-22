@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        let currentDate =new Date();
+
+        while(true){
+            if(currentDate.getDay()==0){
+                break;
+            }
+            currentDate.setDate(currentDate.getDate()-1)
+        }
+        document.write("<div class='row justify-content-center'>");
+        document.write("<div class='col-auto'>");
+        document.write("<h1 class='text-center'> 일주일 달력 </h1>");
+        document.write("<table class='table table-hover'>");
+        document.write("<tr>");
+        document.write("<th>일요일</th><th>월요일</th><th>화요일</th>");
+        document.write("<th>수요일</th><th>목요일</th><th>금요일</th>");
+        document.write("<th>토요일</th>");
+        document.write("</tr>");
+        document.write("<tr>");
+        while(true){
+            document.write('<td>');
+                    document.write("  "
+                    +(currentDate.getMonth()+1)+"/"
+                    +currentDate.getDate());
+                    document.write('</td>')
+                    currentDate.setDate(currentDate.getDate()+1);
+            if(currentDate.getDay()==0){
+                break;
+            }
+        }
+        document.write("</tr>");
+        document.write("</table>");
+        document.write("</div>");
+        document.write("</div>");
+        function strPlusZero(strValue){
+            strValue=strValue+"";
+            if(strValue.length==1){
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

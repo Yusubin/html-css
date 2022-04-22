@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="startInterval()">2초마다 시간 갱신</button>
+    <button onclick="cancleInterval()">정지</button>
+    <br>
+    <br>
+    <img id="im" src="https://w.namu.la/s/45507892b4f48b2b3d4a6386f6dae20c28376a8ef5dfb68c7cc95249ec358e3e68df77594766021173b2e6acf374b79ce02e9eeef61fcdf316659e30289e123fbddf6e5ec3492eddbc582ee5a59a2ff5d6ee84f57ad19277d179b613614364ad" width="300px" height="200px">
+    <br>
+    <p id="list"></p>
+    <!-- 이미지 이름 <input type="name" id="inputt"> -->
+    이미지 링크 <input type="text" id="inputt">
+    <input type="button"onclick="push_src()" value="등록">
+   
+</body>
+
+<script>
+
+    var im=document.getElementById("im");
+    var listt=document.getElementById("list");
+
+    img1="/html/dewdrop-g533c8317b_1920.jpg";
+    img2="/breakfast-g227bf3c28_1920.jpg";
+    img3="/img/traffic-lights-gb4b3fa4f9_1920.jpg";
+    img4="/img/다운로드.png";
+    img5="https://w.namu.la/s/45507892b4f48b2b3d4a6386f6dae20c28376a8ef5dfb68c7cc95249ec358e3e68df77594766021173b2e6acf374b79ce02e9eeef61fcdf316659e30289e123fbddf6e5ec3492eddbc582ee5a59a2ff5d6ee84f57ad19277d179b613614364ad";
+
+    let images=[ img1,img2,img3,img4,img5];
+    var timeoutId;
+    var i=0;
+    function push_src(){
+        const ip=document.getElementById("inputt").value;
+            // console.log(ip);
+        images.push(ip);
+        listt.innerHTML=ip+"등록성공";
+        
+        
+           
+    }
+    function startInterval(){
+        //setInterval 반복적으로 함수실행
+        timeoutId=setInterval(printQurrentDate, 2000);
+        console.log(printQurrentDate);
+    }
+
+    function cancleInterval(){
+        //clearInterval 타이머 중지
+        clearInterval(timeoutId);
+    }
+
+    function printQurrentDate(){
+        while (true){
+            
+            im.setAttribute ("src",images[i]);
+            i++;
+
+            if(i>images.length){
+                i=0;
+            }
+            if(cancleInterval){break;}
+
+        }
+            
+    }
+
+   
+
+
+    function startTimeout(){
+        setTimeout(printQurrentDate,2000);
+    }
+
+</script>
+</html>

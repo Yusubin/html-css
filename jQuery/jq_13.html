@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            $('#appendBtn').click(function(){
+                // $("<li>새로 추가된 아이템</li>").appendTo("#list");
+                $('#list2').find('li').appendTo("#list");
+            });
+            $('#prependBtn').click(function(){
+                // $("<li>뒤로 추가된 아이템</li>").prependTo("#list");
+                $('#list2').find('li').prependTo("#list");
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ul>
+
+    <ul id="list2">
+        <li>네번째</li>
+        <li>다섯번째</li>
+        <li>여섯번째</li>
+    </ul>
+    <button id="appendBtn">뒤추가</button>
+    <button id="prependBtn">앞추가</button>
+</body>
+</html>

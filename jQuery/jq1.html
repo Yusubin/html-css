@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script>
+
+        //-- $('p')=>선택지
+          //------.on() -> 동작함수
+        //-- $('p').동작1()
+         //-- $('p').동작2()
+         //-- $('p').동작1().동작2()
+        $(function(){
+            $('p').on('click',function(){
+                $('p').css('color','red');
+                $('span').css('fontSize','30px');
+            });
+
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <p>마우스로 글씨를 클릭해보세요</p>
+    <p>이것도 바뀌나요</p>
+    <p>이것도 ?</p>
+    <span>변경111111</span>
+    <span>변경222222</span>
+</body>
+<script>
+
+    //-- $('p')=>선택지
+      //------.on() -> 동작함수
+    //-- $('p').동작1()
+     //-- $('p').동작2()
+     //-- $('p').동작1().동작2()
+    //자바스크립트 구현 
+     window.onload-function(){
+        console.log("window.onload");
+     }
+
+     $(document).ready(function(){
+
+        console.log("$(document).ready");
+     });
+
+     //기능구현
+    $(function(){
+        console.log("$(function()");
+
+
+
+    });
+</script>
+</html>

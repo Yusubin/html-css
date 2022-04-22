@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            $("#getter").click(function(){
+               let size_summary=
+               "가로는"+$("#box").width()+"px 세로는"
+               +$("#box").height()+" px 넓이는"
+               +($("#box").width()*$("#box").height())
+               +"px 입니다.";
+               $('#text').html(size_summary);
+        });
+
+        $("#setter").click(function(){
+               let w= $("#box").width();
+               let h= $("#box").height();
+               $("#box").height(h/2).width(w/2);
+               let size_summary=
+               "가로는"+$("#box").width()+"px 세로는"
+               +$("#box").height()+" px 넓이는"
+               +($("#box").width()*$("#box").height())
+               +"px 입니다.";
+               $('#text').html(size_summary);
+        });
+        $("#insert").click(function(){
+               let w= $("#box").width($("#wid").val());
+               let h= $("#box").height($("#hei").val());
+               let size_summary=
+               "가로는"+$("#box").width()+"px 세로는"
+               +$("#box").height()+" px 넓이는"
+               +($("#box").width()*$("#box").height())
+               +"px 입니다.";
+               $('#text').html(size_summary);
+
+
+        });
+
+        $("#insert2").click(function(){
+
+              let string=$("#one").val().split(',');
+     
+              $("#box").width(string[0]);
+              $("#box").height(string[1]);
+
+               let size_summary=
+               "가로는"+$("#box").width()+"px 세로는"
+               +$("#box").height()+" px 넓이는"
+               +($("#box").width()*$("#box").height())
+               +"px 입니다.";
+               $('#text').html(size_summary);
+
+
+        });
+    });
+    </script>
+</head>
+<body>
+    <h1>높이넓이 메소드</h1>
+    <p>버튼을 누르면 div의 크기를 읽고 설정가능</p>
+    <h4>input 2개로 받기</h4>
+    <input id="hei" size=5 type=text>
+    <input id="wid" size=5 type=text>
+    <button id="insert">입력</button>
+
+    <h4>input 1개로 받기</h4>
+    <input id="one" size=16 type=text>
+    <button id="insert2">입력</button>
+    <br><br>
+    <button id="getter">읽기</button>
+    <button id="setter">셋팅</button>
+    <br>    <br>
+    <div id="box" style="width:300px; height:200px; background-color:brown;"></div>
+    <br>
+    <p id="text"></p>
+</body>
+</html>

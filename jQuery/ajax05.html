@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,td{padding: 10px; border-bottom: 1px solid black;}
+
+        table{ 
+        /* font-family: "YUniverse-B";  */
+            width:100%; border-spacing: 20px 30px; border-collapse: collapse;}
+            td{text-align: center;}
+            td:hover{background-color: rgb(243, 243, 243);}
+
+    </style>
+    
+    <script>
+        $(function () {
+            $('#requestionBtn').click(function(){
+                $.ajax({
+
+                    url:'http://192.168.0.12:5500/json/json02.txt',
+                    data:{keyword:'value값'},
+                    method:"get",
+
+                 
+                    beforeSend:function(){
+                        console.log('beforeSend');
+                    },
+                    dataType:"json",
+                    success:function(json){
+
+                        
+                        console.log('Success');
+                     
+                        $("#tt").find('tr').eq(0).nextAll().remove();
+                       
+                        $.each(json, function(index,item){
+                            var insertTr = "";
+                            insertTr += "<tr>";
+                            insertTr += "<td>"+(json.length-index)+"</td>";
+                            insertTr += "<td>"+item.name+"</td>";
+                            insertTr += "<td>"+item.gender+"</td>";
+                            insertTr += "<td>"+item.phone+"</td>";
+                            insertTr += "<td>"+item.id+"</td>";
+                            insertTr += "<td>"+item.pw+"</td>";
+                            insertTr += "<td>"+item.rgstdate+"</td>";
+                            $("#tt").append(insertTr);
+                            // console.log(index+": "+item.name+item.name);
+                            // $("#tt").find('tr_1').eq(1).before("<tr><td>"++"</td></tr>");
+                        })
+
+
+                        console.log(json);
+                      
+                    }, 
+                    
+                    error:function(){
+                        console.log('error');
+                    }, 
+                    
+                    complete:function(){
+                        console.log('complete');
+                    }
+                });
+        });
+    });
+</script>
+</head>
+<body>
+    <button id="requestionBtn">가져오기</button>
+    <table border="1" id="tt">
+        <tr id="tr_1">
+            <td>idx</td>
+            <td>이름</td>
+            <td>성별</td>
+            <td>전화번호</td>
+            <td>아이디</td>
+            <td>비밀번호</td>
+            <td>등록일</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+           var sample =$('#vd').get(0);
+           $("#hide").click(function(){
+                $('#vd').hide();
+           });
+            $("#show").click(function(){
+                $('#vd').show();
+           });
+           $('#change').click(function(){
+                $('#vd').attr('style',"width:100px;");
+            });
+            $('#start').click(function(){
+                sample.play();
+            });
+            $('#stop').click(function(){
+                sample.pause();
+            });
+            $('#mute').click(function(){
+                $('#vd').prop('muted',true);
+            });
+            $('#live').click(function(){
+                $('#vd').prop('muted',false);
+            });
+                
+        });
+
+        
+    </script>
+</head>
+<body>
+    <video id="vd"  style="width:400px" src="ForBiggerBlazes.mp4" controls></video>
+    <br>
+    <button id="hide">영상숨김</button>
+    <button id="show">영상나타남</button>
+    <button id="change">사이즈변경</button>
+    <button id="start">플레이</button>
+    <button id="stop">멈춤</button>
+    <button id="mute">조용히</button>
+    <button id="live">살려</button>
+</body>
+</html>

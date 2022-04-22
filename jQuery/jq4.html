@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #divBox{
+            width:100px;
+            height:100px;
+            background-color: yellow;
+            border:5px solid green;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#showBtn").click(function(){
+                $("#divBox").show(1000);
+            });
+            $("#hideBtn").click(function(){
+                $("#divBox").hide(1000);
+            });
+            $("#toggleBtn").click(function(){
+                $("#divBox").toggle(1000);
+            });
+            $("#fadeinBtn").click(function(){
+                $("#divBox").fadeIn(1000);
+            });
+            $("#fadeoutBtn").click(function(){
+                $("#divBox").fadeOut(1000);
+            });
+            $("#slideDownBtn").click(function(){
+                $("#divBox").slideDown(1000);
+            });
+            $("#slideUpBtn").click(function(){
+                $("#divBox").slideUp(1000);
+            });
+            $("#animateBtn").click(function(){
+                $("#divBox").animate({width:'250px'},3000).animate({marginLeft:'250px'},3000).animate({marginLeft:'0px'},3000).animate({marginTop:'300px'},3000).animate({marginTop:'0px'},3000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="showBtn">SHOW</button>
+    <button id="hideBtn">HIDE</button>
+    <button id="toggleBtn">toggle</button>
+    <button id="fadeinBtn">fadein</button>
+    <button id="fadeoutBtn">fadeout</button>
+    <button id="slideDownBtn">slideDown</button>
+    <button id="slideUpBtn">slideUpBtn</button>
+    <button id="animateBtn">animateBtn</button>
+    <div id="divBox"></div>
+</body>
+</html>

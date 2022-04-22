@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        //--- JSON(객체)
+        //JavaScript Object Notation : 사람이 읽을수 있는 텍스트 기반의
+        //데이터 교환 표준
+        //1. text 방식 데이터 교환
+        //홍길동,50,1,010-2222-3333,1960-03-07|강감찬,45,1,010-1111-1111,1970-03-07
+        //2. XML 방식 데이터 교환
+        //<root><list><name>홍길동</name><birth>1960-03-07</<birth><age>50</age><gender>1</gender>
+        //<phone>010-2222-3333</phone></list>
+        //<list>......</list></root>
+        //3. JSON 방식 데이터 교환
+        //[{name:'홍길동\'s',age:50,gender:1,phone:010-2222-3333,birth:1960-03-07},
+        //{name:'강감찬'......}]
+        // \" \n\r \/ \'
+        /*let msg    = {message:"안녕하세요. 제 닉네임은 \"이카루스\"입니다."}
+        let number = {num:10}
+        let obj    = {dog:["진도개","푸들","웰시코기"]};
+        console.log(msg.message);*/
+        /*let man = {name:'홍길동',age:50,gender:1,phone:010-2222-3333,birth:1960-03-07};
+        console.log(man);
+        console.log(JSON.stringify(man));*/
+        let man_str = '{"name":"홍길동","age":50,"gender":1,"phone":"010-2222-3333","birth":"1960-03-07"}';
+        console.log(man_str);
+        console.log(JSON.parse(man_str));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

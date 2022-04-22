@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+       
+        $(function(){
+            //input[type="button"]
+            $('#btn').click(function(){
+                login_submit();
+            });
+
+            function login_submit(){
+                if($('#u_id').val()== ''){
+                    alert("아이디를 입력하십시오.");
+                    $('#u_id').focus();
+                    return false;
+                }if($('#u_pw').val() == ''){
+                    alert("비밀번호를 입력하십시오.");
+                    $('#u_pw').focus();
+                    return false;
+                }
+                if(confirm("로그인 하시겠습니까?")){
+                    $('h1').html("로그인 중....");}
+            }
+
+            // $('#btn').click(function(){
+            //     if($('#u_id').val()== ''){
+            //         alert("아이디를 입력하십시오.");
+            //         $('#u_id').focus();
+            //         return false;
+            //     }if($('#u_pw').val() == ''){
+            //         alert("비밀번호를 입력하십시오.");
+            //         $('#u_pw').focus();
+            //         return false;
+            //     }
+            // $('h1').html("로그인 중....");
+                
+
+    // }); 
+});
+    </script>
+</head>
+<body>
+    <h1>로그인</h1>
+    <hr>
+    <form name="login" action="/1111" method="get">
+        <input type="text" name="u_id" id="u_id" placeholder="아이디" autofocus><br>
+        <input type="password" name="u_pw" id="u_pw"placeholder="패스워드"><br>
+        <input type="button" id=btn value="로그인">
+    </form>
+</body>
+
+</html>

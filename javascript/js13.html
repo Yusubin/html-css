@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <h1>이벤트 등록</h1>
+    <p>아래버튼애 마우스를 올ㄹ리거나 클릭해보세요</p>
+    <!-- <div id="dd">
+        <img src="/html/dewdrop-g533c8317b_1920.jpg" width='300px 'height='150px'>
+    </div> -->
+    <img id="dd" src="/html/dewdrop-g533c8317b_1920.jpg" width='300px 'height='150px'>
+    <p id="message"></p>
+</body>
+<script>
+    var dd=document.getElementById("dd");
+    dd.addEventListener("click", clickBtn);
+    dd.addEventListener("mouseover", mouseoverBtn);
+    dd.addEventListener("mouseout", mouseoutBtn);
+
+
+    function clickBtn(){
+        document.getElementById("dd").src="/breakfast-g227bf3c28_1920.jpg";
+        // document.getElementById("dd").innerHTML="<img src='/breakfast-g227bf3c28_1920.jpg' width='300px' height='150px'> ";
+    }
+    function mouseoverBtn(){
+         document.getElementById("dd").src="/img/traffic-lights-gb4b3fa4f9_1920.jpg";
+    }
+    function mouseoutBtn(){
+        document.getElementById("dd").src="/img/다운로드.png";
+    }
+</script>
+</html>

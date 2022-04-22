@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <button onclick="startInterval()">2초마다 시간 갱신</button>
+    <button onclick="cancleInterval()">정지</button>
+    <p id="date"></p>
+</body>
+<script>
+    var timeoutId;
+    function startInterval(){
+        //setInterval 반복적으로 함수실행
+        timeoutId=setInterval(printQurrentDate, 2000);
+    }
+
+    function cancleInterval(){
+        //clearInterval 타이머 중지
+        clearInterval(timeoutId);
+    }
+
+    function printQurrentDate(){
+        document.getElementById("date").innerHTML += new Date()+"<br>";}
+
+    function startTimeout(){
+        setTimeout(printQurrentDate,2000);
+    }
+</script>
+</html>

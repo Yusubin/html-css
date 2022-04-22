@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // .html()
+        //.text()
+        //.width()
+        //.height()
+        //.attr()
+        //.position()
+        //.val()
+        $(function(){
+            $('#getter').click(function(){
+                let img_src=$('img').attr('src');
+                // alert(img_src);
+                console.log("idx:"+$('img').data("idx"));
+            });
+            $('#setter').click(function(){
+                let img_src=$('img').attr('src',"/img/traffic-lights-gb4b3fa4f9_1920.jpg");
+                $('img').attr('style',"width:400px;border:1px solid pink");
+                $('img').attr('id',"setter2");
+                $('img').data("idx","2");
+                console.log("setterlog")
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <p>버튼을 누르면 이미지를 변경</p>
+    <button id="getter">이미지 경로</button>
+    <button id="setter">이미지 속성변경</button>
+    <button>이미지 변경</button>
+    <img data-idx="1" src="/breakfast-g227bf3c28_1920.jpg" style="width:400px;border:1px solid blue">
+    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                // $('#list').find("li").eq(1).html('두번째 아이템 선택');
+                $('#list').children().eq(1).html('두번째 아이템 선택');
+            })
+        });
+
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li>첫번째</li>
+        <li>두번째</li>
+        <li>세번째</li>
+    </ul>
+    <button>변경</button>
+</body>
+</html>

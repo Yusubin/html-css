@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        th,td{padding: 10px; border-bottom: 1px solid black;}
+
+        table{ 
+        /* font-family: "YUniverse-B";  */
+            width:100%; border-spacing: 20px 30px; border-collapse: collapse;}
+            td{text-align: center;}
+            td:hover{background-color: rgb(243, 243, 243);}
+
+    </style>
+    <script>
+        $(function(){
+            $('#requestionBtn').click(function(){
+                $.ajax({
+                    url:'http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/992',
+                    data:{keyword:'value값'},
+                    method:"get",
+
+                 
+                    beforeSend:function(){
+                        console.log('beforeSend');
+                    },
+                    dataType:"json",
+                    success:function(json){
+                        
+                        
+                        console.log('Success');
+                        console.log(json);
+                        $("mise").find('tr').eq(0).nextAll().remove();
+                        $.each(json.RealtimeCityAir.row, function(index,item){
+                            var insertTr = "";
+                            insertTr += "<tr>";
+                            insertTr += "<td>"+item.MSRRGN_NM+"</td>";
+                            insertTr += "<td>"+item.MSRSTE_NM+"</td>";
+                            insertTr += "<td>"+item.IDEX_MVL+"</td>";
+                            insertTr += "<td>"+item.IDEX_NM+"</td>";
+                            $("#mise").append(insertTr);
+                        });
+                        
+                        $("#addr").find('option ').eq(0).nextAll().remove();
+                        $.each(json.RealtimeCityAir.row, function(index,item){
+                            var insertSl= "";
+                            insertSl += "<option >";
+                            insertSl += item.MSRSTE_NM;
+                            insertSl += "<option>";
+                            $("#addr").append(insertSl);
+
+                        });
+
+                    }, 
+                    
+                    error:function(){
+                        console.log('error');
+                    }, 
+                    
+                    complete:function(){
+                        console.log('complete');
+                    }
+                });
+                
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+    <button id="requestionBtn">가져오기</button>
+    <select name="addr" id="addr">
+        <option value="0">(권역)선택해주세요</option>
+    </select>
+    <table border="1" id="mise">
+        <tr id="tr_1">
+            <td>권역</td>
+            <td>구</td>
+            <td>수치</td>
+            <td>상태</td>
+        </tr>
+    </table>
+</body>
+</html>
